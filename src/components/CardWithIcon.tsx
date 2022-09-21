@@ -3,8 +3,8 @@ import * as React from "react";
 import { Box, Card, Divider, Typography } from "@mui/material";
 import { FC, createElement } from "react";
 import { Link, To } from "react-router-dom";
+import { Theme, useMediaQuery } from "@mui/material";
 
-import { ReactNode } from "react";
 import img from "../img/img.png";
 
 interface CardWithIconProps extends React.HTMLAttributes<HTMLElement> {
@@ -21,11 +21,14 @@ export const CardWithIcon = ({
   subtitle,
   children,
 }: CardWithIconProps) => {
+  const isXs = useMediaQuery((theme: Theme) => theme.breakpoints.down("sm"));
+  const isSm = useMediaQuery((theme: Theme) => theme.breakpoints.down("lg"));
   return (
     <Card
       sx={{
         minHeight: 52,
         display: "flex",
+        marginTop: isSm || isXs ? "1rem" : 0,
         flexDirection: "column",
         flex: "1",
         "& a": {

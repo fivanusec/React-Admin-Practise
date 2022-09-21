@@ -42,6 +42,7 @@ const customEnglishMessages: TranslationMessages = {
   resources: {
     customers: {
       name: "Worker list",
+      cardDisplay: "Current workers",
       fields: {
         commands: "Orders",
         first_seen: "First seen",

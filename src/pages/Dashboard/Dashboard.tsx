@@ -1,33 +1,34 @@
 import * as React from "react";
 
-import { MonthlyRevenue } from "./MonthlyRevenue";
+import { SimpleForm, TextInput } from "react-admin";
+
+import { DashboardAnalytics } from "./DashboardAnalytics";
+import { RichTextInput } from "ra-input-rich-text";
 
 interface DashboardProps {}
 
 export const Dashboard = ({}: DashboardProps) => {
-  const styles = {
-    flex: { display: "flex", marginTop: "1em" },
-    flexColumn: { display: "flex", flexDirection: "column" },
-    leftCol: { flex: 1, marginRight: "0.5em" },
-    rightCol: { flex: 1, marginLeft: "0.5em" },
-    singleCol: { marginTop: "1em", marginBottom: "1em" },
-  };
   return (
-    <div style={styles.flex}>
-      <div style={styles.leftCol}>
-        <div style={styles.flex}>
-          <MonthlyRevenue value="1000" />
-        </div>
-        <div style={styles.singleCol}></div>
-        <div style={styles.singleCol}>
-          {/* <PendingOrders orders={pendingOrders} /> */}
-        </div>
-      </div>
-      <div style={styles.rightCol}>
-        <div style={styles.flex}>
-          {/* <PendingReviews />
-          <Spacer />
-          <NewCustomers /> */}
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginTop: "1em",
+      }}
+    >
+      <DashboardAnalytics />
+      <hr />
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+        }}
+      >
+        <div style={{ display: "flex" }}>
+          <SimpleForm>
+            <TextInput source="title" />
+            <RichTextInput source="body" />
+          </SimpleForm>
         </div>
       </div>
     </div>
